@@ -1,17 +1,25 @@
-import React from "react"   
-import { useSelector, useDispatch } from 'react-redux';   
-import { useEffect } from "react";   
-import { getGreetingThunk } from '../redux/reducer';       
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Greeting = () => {    
-  const dispatch = useDispatch(); 
-         
-  useEffect(() => {    
-    dispatch(getGreetingThunk());  
-  }, [dispatch]);        
+import { getGreetingThunk } from '../redux/reducer';
 
-  const message = useSelector((state) => state.greetingReducer.greetings);        
-  return (<div><h1> {message}</h1>    </div>)      
-};     
+const Greeting = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGreetingThunk());
+  }, [dispatch]);
+
+  const message = useSelector((state) => state.greetingReducer.greetings);
+  return (
+    <div>
+      <h1>
+        {' '}
+        {message}
+      </h1>
+      {' '}
+    </div>
+  );
+};
 
 export default Greeting;
